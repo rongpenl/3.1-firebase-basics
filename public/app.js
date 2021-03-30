@@ -70,20 +70,14 @@ auth.onAuthStateChanged(user => {
             .where('uid', '==', user.uid)
             .orderBy('createdAt') // Requires a query
             .onSnapshot(querySnapshot => {
-                
+
                 // Map results to an array of li elements
 
                 const items = querySnapshot.docs.map(doc => {
-
                     return `<li>${doc.data().name}</li>`
-
                 });
-
                 thingsList.innerHTML = items.join('');
-
             });
-
-
 
     } else {
         // Unsubscribe when the user signs out
